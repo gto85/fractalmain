@@ -61,62 +61,57 @@ class _KrugBalansaDayState extends State<KrugBalansaDay> {
     }
     // print("высота: $height ширина: $width");
     return
-      Container(
-          child:SfCircularChart(
-            annotations: <CircularChartAnnotation>[
-              CircularChartAnnotation(
-                  widget: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(150),
-                        border: Border(
-                            top: BorderSide(width: 3.0, color: Color(0xFFFFFFFF)),
-                            left: BorderSide(width: 3.0, color: Color(0xFFFFFFFF)),
-                            right: BorderSide(width: 3.0, color: Color(0xFFFFFFFF)),
-                            bottom: BorderSide(width: 3.0, color: Color(0xFFFFFFFF))),
-                      ),
-                      child: PhysicalModel(
-                          child: Container(width: heigh,
-                          height: heigh,),
-                          shape: BoxShape.circle,
-                          elevation: 0,
-                          shadowColor: Colors.white,
-                          color: const Color(0xFF000000)))),
-              CircularChartAnnotation(
-                  widget: Container(
-                      child: Text("${test*period~/60.round()} ч.\n ${test*period%60} мин.",textAlign: TextAlign.center,
-                          style: TextStyle(fontFamily: "fonts/Cuprum.ttf",letterSpacing: 0, fontWeight: FontWeight.w400,
-                              color: Color.fromRGBO(
-                                  255, 255, 255, 1), fontSize: 35))))
-            ],
-            series: <CircularSeries>[
-            DoughnutSeries<CharNeed, String>(
-              onRendererCreated: (CircularSeriesController  controller) {
-                seriesController = controller;
-              },
-              innerRadius: percInerRad,
-              explode: false,
-              explodeIndex: 2,
-              onPointLongPress: (ChartPointDetails details) {
-                print("onPointLongPress${seriesController}");
-              },
-              onPointTap: (ChartPointDetails details) {
-               print("onPointTap:  ${details.pointIndex}");
-              },
-              onPointDoubleTap:(ChartPointDetails details) {
-                // print("Данные чарта:${details.dataPoints}Номер чарта:${details.pointIndex}series чарта:${details.seriesIndex}viewportPointIndex чарта:${details.viewportPointIndex}");
-                },
-              strokeWidth:4.0,
-              dataSource: _charData,
-              xValueMapper: (CharNeed data, _)=>data.name,
-              pointColorMapper:(CharNeed data,  _) => data.color,
-              yValueMapper: (CharNeed data, _)=>data.value*24/100,
-              // dataLabelSettings: DataLabelSettings(isVisible: false, labelAlignment: ChartDataLabelAlignment.bottom, labelPosition: ChartDataLabelPosition.inside),
-              strokeColor: Color(0xFFFFFFFF),
-              radius:"100%",
-              selectionBehavior: SelectionBehavior(selectedColor: Colors.red,unselectedColor: Colors.grey),
-            )
-          ],),
-        );
+      SfCircularChart(
+        annotations: <CircularChartAnnotation>[
+          CircularChartAnnotation(
+              widget: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(150),
+                    border: const Border(
+                        top: BorderSide(width: 3.0, color: Color(0xFFFFFFFF)),
+                        left: BorderSide(width: 3.0, color: Color(0xFFFFFFFF)),
+                        right: BorderSide(width: 3.0, color: Color(0xFFFFFFFF)),
+                        bottom: BorderSide(width: 3.0, color: Color(0xFFFFFFFF))),
+                  ),
+                  child: PhysicalModel(
+                      child: SizedBox(width: heigh,
+                      height: heigh,),
+                      shape: BoxShape.circle,
+                      elevation: 0,
+                      shadowColor: Colors.white,
+                      color: const Color(0xFF000000)))),
+          CircularChartAnnotation(
+              widget: Text("${test*period~/60.round()} ч.\n ${test*period%60} мин.",textAlign: TextAlign.center,
+                  style: const TextStyle(fontFamily: "fonts/Cuprum.ttf",letterSpacing: 0, fontWeight: FontWeight.w400,
+                      color: Color.fromRGBO(
+                          255, 255, 255, 1), fontSize: 35)))
+        ],
+        series: <CircularSeries>[
+        DoughnutSeries<CharNeed, String>(
+          onRendererCreated: (CircularSeriesController  controller) {
+            seriesController = controller;
+          },
+          innerRadius: percInerRad,
+          explode: false,
+          explodeIndex: 2,
+          onPointLongPress: (ChartPointDetails details) {
+          },
+          onPointTap: (ChartPointDetails details) {
+          },
+          onPointDoubleTap:(ChartPointDetails details) {
+            // print("Данные чарта:${details.dataPoints}Номер чарта:${details.pointIndex}series чарта:${details.seriesIndex}viewportPointIndex чарта:${details.viewportPointIndex}");
+            },
+          strokeWidth:4.0,
+          dataSource: _charData,
+          xValueMapper: (CharNeed data, _)=>data.name,
+          pointColorMapper:(CharNeed data,  _) => data.color,
+          yValueMapper: (CharNeed data, _)=>data.value*24/100,
+          // dataLabelSettings: DataLabelSettings(isVisible: false, labelAlignment: ChartDataLabelAlignment.bottom, labelPosition: ChartDataLabelPosition.inside),
+          strokeColor: const Color(0xFFFFFFFF),
+          radius:"100%",
+          selectionBehavior: SelectionBehavior(selectedColor: Colors.red,unselectedColor: Colors.grey),
+        )
+      ],);
   }
   List<CharNeed>? getChartData(){
     List<CharNeed>? charData=[];

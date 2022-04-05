@@ -9,8 +9,8 @@ import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 
 class ClusterList2 extends StatefulWidget {
-  ClusterList2({Key? key, required this.period}) : super(key: key);
-  late double period;
+  const ClusterList2({Key? key, required this.period}) : super(key: key);
+  final double period;
   @override
   _ClusterList2State createState() => _ClusterList2State();
 }
@@ -134,10 +134,10 @@ class _ClusterList2State extends State<ClusterList2> {
             int index,
             ) {
           String? clusterKey = snapshot.key;
-          // Map map = snapshot.value;
-          Map map = {};
-          String clusterName = map['name'] as String;
-          int clusterColor = int.parse(map['color']);
+          var map =  snapshot.value;
+          var map1=Map<String, dynamic>.from(map as Map);
+          String clusterName = map1['name'];
+          int clusterColor = int.parse(map1['color']);
           return  Column(
             children: <Widget>[
               ListTile(
@@ -170,7 +170,7 @@ class _ClusterList2State extends State<ClusterList2> {
                                 width: 105,
                                 height: 18,
                                 child: Container(padding: const EdgeInsets.only(left: 0),
-                                  child: Text("${map['timeCluster']*widget.period~/60.round()} ч. ${map['timeCluster']*widget.period%60} мин.",
+                                  child: Text("${map1['timeCluster']*widget.period~/60.round()} ч. ${map1['timeCluster']*widget.period%60} мин.",
                                     style: const TextStyle(
                                         color: Colors.white,
                                         fontFamily: "fonts/Cuprum.ttf",
@@ -186,14 +186,14 @@ class _ClusterList2State extends State<ClusterList2> {
                                   decoration: BoxDecoration(borderRadius:BorderRadius.circular(4.5),),
                                   padding: const EdgeInsets.only(left: 1),
                                   child: LinearProgressIndicator(
-                                    value: map['timeCluster']*100/1440,
+                                    value: map1['timeCluster']*100/1440,
                                     backgroundColor: const Color(0xFF4DA4FF),
                                     valueColor:AlwaysStoppedAnimation<Color>(Color(clusterColor)),
                                   ),)
                             ),
 
                               Text(
-                                (map['timeCluster']*100/1440).toStringAsFixed(2)+ "%",textAlign: TextAlign.right,
+                                (map1['timeCluster']*100/1440).toStringAsFixed(2)+ "%",textAlign: TextAlign.right,
                                 style: const TextStyle(fontFamily: "fonts/Cuprum.ttf",fontSize: 13,color: Color.fromRGBO(255, 255, 255, 1)),
                             ),
                           ]
@@ -213,7 +213,7 @@ class _ClusterList2State extends State<ClusterList2> {
                   )]) ,
                 onTap: () {
                   // print("map color ${map["color"]}");
-                  _editTask(clusterKey!,map["name"],map["color"]);
+                  _editTask(clusterKey!,map1["name"],map1["color"]);
                 },
               ),
               const Divider(

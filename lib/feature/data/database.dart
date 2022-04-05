@@ -11,7 +11,7 @@ class Database {
     String accountKey = await _getAccountKey();
     // print(key);
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
@@ -23,7 +23,7 @@ class Database {
   static Future<void> delClusterTask(String? clusterkey,String? taskKey) async {
     String accountKey = await _getAccountKey();
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
@@ -35,7 +35,7 @@ class Database {
   static Future<void> saveName(String clusterkey, String name) async {
     String accountKey = await _getAccountKey();
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
@@ -46,7 +46,7 @@ class Database {
   static Future<void> saveTask(String clusterkey,String taskkey, String name) async {
     String accountKey = await _getAccountKey();
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
@@ -61,7 +61,7 @@ class Database {
     // print("Сохранение галочки задачи!!!");
     // print("clusterkey: $clusterkey taskkey: $taskkey compl: $compl");
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
@@ -75,7 +75,7 @@ class Database {
   static Future<void> delCluster(String? clusterkey) async {
     String accountKey = await _getAccountKey();
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
@@ -130,7 +130,7 @@ class Database {
     };
     String accountKey = await _getAccountKey();
     DatabaseReference reference = FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters");
@@ -154,7 +154,7 @@ class Database {
     };
     String accountKey = await _getAccountKey();
     DatabaseReference reference = FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("TimeComplTasks");
@@ -175,27 +175,30 @@ class Database {
         .orderByKey();
     List<CharNeed> chNeed=[];
     await charNeedsSnapshot.once().then((snap) {
-
-    }); // you should use await on async methods
-
-      // chNeed.add(CharNeed(snapshot.!['timeCluster']/60*100/24, snapshot.value['name'], Color(int.parse("${snapshot.value['color']}"))));
-
+     var map =  snap.snapshot.value;
+     var map1=Map<String, dynamic>.from(map as Map);
+     map1.forEach((key, value) {
+       chNeed.add(CharNeed(value['timeCluster']/60*100/24, value['name'], Color(int.parse("${value['color']}"))));
+     });
+    });
     return chNeed;
   }
   static Future<List<CharNeed>?> getCharNeedsMin() async {
     String accountKey = await _getAccountKey();
     Query _charNeedsSnapshot = FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
         .orderByKey();
     List<CharNeed> _chNeed=[];
-
-        // print("Время кластера:${value['timeCluster']} Имя кластера:${value['name']} Цвет кластера:${value['color']}");
-        // _chNeed.add(CharNeed(double.parse(value['timeCluster'].toString()), value['name'], Color(int.parse("${value['color']}"))));
-
-    // print(chNeed.runtimeType);
+    await _charNeedsSnapshot.once().then((snap) {
+      var map =  snap.snapshot.value;
+      var map1=Map<String, dynamic>.from(map as Map);
+      map1.forEach((key, value) {
+        _chNeed.add(CharNeed(double.parse(value['timeCluster'].toString()), value['name'], Color(int.parse("${value['color']}"))));
+      });
+    });
     return _chNeed;
   }
   static Future<List<CharNeed>?> getResultCharNeeds(int period) async {
@@ -235,7 +238,7 @@ class Database {
   static Future<Query> TimeClusters() async {
     String accountKey = await _getAccountKey();
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
@@ -245,7 +248,7 @@ class Database {
   static Future<void> saveTaskTime(String clusterkey,String taskkey, int val) async {
     String accountKey = await _getAccountKey();
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
@@ -258,7 +261,7 @@ class Database {
   static Future<void> setClusterTime(String clusterkey,int timeClust) async {
     String accountKey = await _getAccountKey();
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
@@ -269,7 +272,7 @@ class Database {
   static Future<void> saveColor(String clusterkey, String color) async {
     String accountKey = await _getAccountKey();
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
@@ -278,7 +281,7 @@ class Database {
         .set(color);
   }
   static Future<StreamSubscription<DatabaseEvent>> getNameStream(String clusterkey,
-      void onData(String name)) async {
+      void Function(String name) onData) async {
     String accountKey = await _getAccountKey();
 
     StreamSubscription<DatabaseEvent> subscription = FirebaseDatabase.instance
@@ -291,9 +294,7 @@ class Database {
         .onValue
         .listen((DatabaseEvent event) {
       String name = event.snapshot.value as String;
-      if (name == null) {
-        name = "";
-      }
+      name ??= "";
       onData(name);
     });
     // print("111");
@@ -302,7 +303,7 @@ class Database {
   static Future<Query> queryClusters() async {
     String accountKey = await _getAccountKey();
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("Clusters")
@@ -312,7 +313,7 @@ class Database {
   static Future<Query> queryClustersResult() async {
     String accountKey = await _getAccountKey();
     return FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child("accounts")
         .child(accountKey)
         .child("TimeComplTasks");

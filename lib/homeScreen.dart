@@ -1,12 +1,9 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fractal/core/widgets/bottom_bar.dart';
 import 'package:fractal/feature/authenticaiton/services/auth.dart';
-import 'package:fractal/feature/balance_plan/balance_screen_plan_day.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -40,9 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ListTile(
                       title: const Text("О себе"),
                       leading: const Icon(Icons.account_box),
-                      onTap: (){
-
-                      }
+                      onTap: (){}
                   ),
                   ListTile(
                       title: const Text("Настройки"),
@@ -120,7 +115,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
 class MyPage extends StatefulWidget{
   const MyPage({Key? key}) : super(key: key);
 
@@ -150,22 +144,10 @@ class MyPageState extends State<MyPage>{
             size: 30
         ),
         items: [
-          BottomNavigationBarItem(
-            icon: Image.asset("images/_botom_icon_balance_25px.png"),
-            label: "Баланс",
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset("images/_botom_icon_stat_25px.png"),
-            label: "Статистика",
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset("images/_botom_icon_time_life_25px.png"),
-            label: "90 лет",
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset("images/_botom_icon_profile_25px.png"),
-            label: "Профиль",
-          )
+          BottomNavigationBarItem(icon: Image.asset("images/_botom_icon_balance_25px.png"),label: "Баланс",),
+          BottomNavigationBarItem(icon: Image.asset("images/_botom_icon_stat_25px.png"),label: "Статистика",),
+          BottomNavigationBarItem(icon: Image.asset("images/_botom_icon_time_life_25px.png"),label: "90 лет",),
+          BottomNavigationBarItem(            icon: Image.asset("images/_botom_icon_profile_25px.png"),label: "Профиль",)
         ],
         onTap: (int index){
           onTapHandler(index);
