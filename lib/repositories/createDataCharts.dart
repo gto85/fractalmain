@@ -1,24 +1,25 @@
 
 import 'dart:core';
 import 'package:collection/src/iterable_extensions.dart';
-import 'package:fractal/feature/balance_plan/balance_screen_plan_day.dart';
-import 'package:fractal/feature/data/database.dart';
+import 'package:fractal/data/database.dart';
+import 'package:fractal/models/char_needs.dart';
+
 
 // var temp=Database.getNeeds();
 poluchMin(list) async {
-  List<CharNeed>? fileContent= await downLdFieMin();
+  List? fileContent= await downLdFieMin();
   // print({"poluchMin: ${list}"});
   return fileContent!.forEach((element) {
     list.add(element);
   });
 }
-Future<List<CharNeed>?> downLdFieMin() async {
-  List<CharNeed>? result= await Database.getCharNeedsMin();
+Future<List?> downLdFieMin() async {
+  List? result= await Database.getCharNeedsMin();
   // print(result.runtimeType);
   return result;
 }
 poluch(_list,per) async {
-  List<CharNeed>? _fileContent= await downLdFie(per);
+  List? _fileContent= await downLdFie(per);
   print({"poluch: ${_list}"});
   print({"per: ${per}"});
 
@@ -36,8 +37,8 @@ poluch1(_list,per) async {
   });
 }
 Future<List<CharNeedResult>?> getDataMyChList(int period) async {
-  List<CharNeed>? planResult= await Database.getCharNeeds();
-  List<CharNeed>? tempResult= await Database.getResultCharNeeds(period);
+  List? planResult= await Database.getCharNeeds();
+  List? tempResult= await Database.getResultCharNeeds(period);
   // List<CharNeed>? weekResult= await Database.getResultCharNeedsWeek(period);
   List<CharNeedResult>? result= [];
   double sum=0;
@@ -53,32 +54,32 @@ Future<List<CharNeedResult>?> getDataMyChList(int period) async {
   });
   return result;
 }
-Future<List<CharNeed>?> downLdFie(int period) async {
-  List<CharNeed>? result= await Database.getResultCharNeeds(period);
+Future<List?> downLdFie(int period) async {
+  List? result= await Database.getResultCharNeeds(period);
   // print(result.runtimeType);
   return result;
 }
 printFileContent(list) async {
-  List<CharNeed>? fileContent= await downLoadFile();
+  List? fileContent= await downLoadFile();
   // print(list);
   return fileContent!.forEach((element) {
     list.add(element);
   });
 }
-Future<List<CharNeed>?> downLoadFile() async {
-  List<CharNeed>? result= await Database.getCharNeeds();
+Future<List?> downLoadFile() async {
+  List? result= await Database.getCharNeeds();
   // print(result.runtimeType);
   return result;
 }
 getCheckList(list) async {
-  List<CharNeed>? fileContent= await getDataChList();
+  List? fileContent= await getDataChList();
   // print(list);
   return fileContent!.forEach((element) {
     list.add(element);
   });
 }
-Future<List<CharNeed>?> getDataChList() async {
-  List<CharNeed>? result= await Database.getCharNeeds();
+Future<List?> getDataChList() async {
+  List? result= await Database.getCharNeeds();
   // print(result.runtimeType);
   return result;
 }

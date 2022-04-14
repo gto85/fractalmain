@@ -1,8 +1,9 @@
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:fractal/feature/balance_plan/createDataCharts.dart';
-import 'package:fractal/feature/data/database.dart';
+import 'package:fractal/data/database.dart';
+import 'package:fractal/models/char_needs.dart';
+import 'package:fractal/repositories/createDataCharts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class KrugBalansaDay extends StatefulWidget {
@@ -120,18 +121,6 @@ class _KrugBalansaDayState extends State<KrugBalansaDay> {
     return charData;
   }
 }
-class CharNeed {
-  final double value;
-  final String name;
-  final Color color;
-  CharNeed(this.value, this.name, this.color);
-}
-class CharNeedResult {
-  final double value;
-  final double plan;
-  final String name;
-  final Color color;
-  CharNeedResult(this.value, this.plan, this.name, this.color);
-}
+
 
 

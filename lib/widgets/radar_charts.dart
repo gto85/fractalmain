@@ -3,9 +3,10 @@ import 'dart:math' as math;
 import 'package:collection/src/iterable_extensions.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:fractal/feature/balance_plan/balance_screen_plan_day.dart';
-import 'package:fractal/feature/balance_plan/createDataCharts.dart';
-import 'package:fractal/feature/data/database.dart';
+import 'package:fractal/data/database.dart';
+import 'package:fractal/models/char_needs.dart';
+import 'package:fractal/repositories/createDataCharts.dart';
+
 
 
 

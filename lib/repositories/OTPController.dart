@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fractal/homeScreen.dart';
+import 'package:fractal/screens/homeScreen.dart';
 import 'package:pinput/pinput.dart';
 
 class OTPControllerScreen extends StatefulWidget {
