@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fractal/core/widgets/bottom_bar.dart';
-import 'package:fractal/feature/authenticaiton/services/auth.dart';
+import 'package:fractal/services/auth.dart';
+import 'package:fractal/widgets/bottom_bar.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

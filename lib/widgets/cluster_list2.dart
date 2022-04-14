@@ -2,9 +2,9 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:fractal/feature/data/database.dart';
-import 'package:fractal/feature/edit_cluster.dart';
-import 'package:fractal/feature/tasks/edit_task.dart';
+import 'package:fractal/data/database.dart';
+import 'package:fractal/screens/tasks/edit_task.dart';
+import 'package:fractal/widgets/edit_cluster.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 

@@ -2,12 +2,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fractal/core/notifications.dart';
-import 'package:fractal/feature/balance_plan/balance_screen_plan_day.dart';
-import 'package:fractal/feature/calendar.dart';
-import 'package:fractal/feature/charts/radar_charts.dart';
-import 'package:fractal/feature/cluster_list2.dart';
-import 'package:fractal/feature/result_list_in_time.dart';
+import 'package:fractal/notifications.dart';
+import 'package:fractal/screens/balance_screen_plan_day.dart';
+import 'package:fractal/widgets/calendar.dart';
+import 'package:fractal/widgets/cluster_list2.dart';
+import 'package:fractal/widgets/radar_charts.dart';
+import 'package:fractal/widgets/result_list_in_time.dart';
 import 'package:o_color_picker/o_color_picker.dart';
 
 class MyBalanceResult extends StatelessWidget {
@@ -540,7 +540,7 @@ class MyBalance extends StatelessWidget {
                                 ),
                                 child: Container(
                                   margin: const EdgeInsets.only(top: 0),
-                                  child: ClusterList2(period: 1,),
+                                  child: const ClusterList2(period: 1,),
                                 ),
                               )
                           )
@@ -594,7 +594,7 @@ class MyBalance extends StatelessWidget {
                                 ),
                                 child: Container(
                                   margin: const EdgeInsets.only(top: 0),
-                                  child: ClusterList2(period: 7,),
+                                  child: const ClusterList2(period: 7,),
                                 ),
                               )
                           )
@@ -647,7 +647,7 @@ class MyBalance extends StatelessWidget {
                                 ),
                                 child: Container(
                                   margin: const EdgeInsets.only(top: 0),
-                                  child: ClusterList2(period: 30.41666667
+                                  child: const ClusterList2(period: 30.41666667
                                     ,),
                                 ),
                               )
@@ -701,7 +701,7 @@ class MyBalance extends StatelessWidget {
                                 ),
                                 child: Container(
                                   margin: const EdgeInsets.only(top: 0),
-                                  child: ClusterList2(period: 365.25,),
+                                  child: const ClusterList2(period: 365.25,),
                                 ),
                               )
                           )

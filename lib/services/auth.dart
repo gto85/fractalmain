@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fractal/core/models/user.dart';
+import 'package:fractal/models/user.dart';
 
 
 

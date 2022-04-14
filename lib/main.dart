@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fractal/feature/authenticaiton/login_Screen.dart';
+import 'package:fractal/screens/loginScreen.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

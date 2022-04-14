@@ -1,8 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:fractal/feature/authenticaiton/OTPController.dart';
+import 'package:fractal/repositories/OTPController.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -13,7 +11,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
 
   String dialCodeDigits = "+00";
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +20,12 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 100,),
+            const SizedBox(height: 100,),
             Padding(padding: const EdgeInsets.only(left: 28,right: 28),
               child: Image.asset("images/_24_fractal.png"),),
             Container(
-              margin: EdgeInsets.only(top: 10),
-              child:Center(
+              margin: const EdgeInsets.only(top: 10),
+              child:const Center(
                   child: Text(
                     "Код Авторизации",
                     style: TextStyle(
@@ -36,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   )
               ),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             SizedBox(
               width: 400,
               height: 60,
@@ -49,17 +47,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 initialSelection: "IT",
                 showCountryOnly: false,
                 showOnlyCountryWhenClosed: false,
-                favorite: ["+7", "RUS"],
+                favorite: const ["+7", "RUS"],
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 10,right: 10,left: 10),
+              margin: const EdgeInsets.only(top: 10,right: 10,left: 10),
               child: TextField(
                 controller: _controller,
                 decoration: InputDecoration(
                         hintText: "Номер телефона",
                         prefix: Padding(
-                            padding: EdgeInsets.all(4),
+                            padding: const EdgeInsets.all(4),
                             child: Text(dialCodeDigits),
                         )
                   ),
@@ -69,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(15),
+              margin: const EdgeInsets.all(15),
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: (){
@@ -79,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   )));
                 },
-                child: Text("Далее", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                child: const Text("Далее", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
 
               ),
             )

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:fractal/feature/data/database.dart';
+import 'package:fractal/data/database.dart';
 import 'package:o_color_picker/o_color_picker.dart';
 
 
