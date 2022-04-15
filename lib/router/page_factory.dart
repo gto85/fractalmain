@@ -10,9 +10,6 @@ class PageFactory {
       ) {
     switch (factoryKey) {
       case AuthPage.factoryKey: return AuthPage();
-      case BookDetailsPage.factoryKey: return BookDetailsPage(bookId: state['bookId']);
-      case BookListPage.factoryKey: return BookListPage();
-      case InputPage.factoryKey: return InputPage(name: '');
     }
 
     return null;
