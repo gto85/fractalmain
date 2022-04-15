@@ -24,6 +24,7 @@ dependencies:
   step_progress_indicator: ^1.0.2
   percent_indicator: ^4.0.0
   flutter_local_notifications: ^9.4.0
+  app_state: ^0.3.2
 
 
 dev_dependencies:
