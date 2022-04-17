@@ -3,6 +3,7 @@ enum TabEnum {
   planned,
   actually,
   pin,
+  tasklist,
   addCluster,
   settings,
   editTask,

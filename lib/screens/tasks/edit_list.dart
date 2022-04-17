@@ -1,7 +1,6 @@
 import 'dart:async';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:fractal/feature/data/database.dart';
+import '../../data/database.dart';
 import 'edit_task.dart';
 
 class EditListPage extends StatefulWidget {
@@ -72,7 +71,6 @@ class _EditListPageState extends State<EditListPage> {
                   value.once().then((value) {
                     Map<dynamic, dynamic> _myMap ;
                     print(value.snapshot.value);
-
                     // _myMap.forEach((key, value) {
                     //   tempVal=tempVal+value["timeTask"];
                     // });

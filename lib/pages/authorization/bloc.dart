@@ -1,12 +1,12 @@
 import 'package:app_state/app_state.dart';
+import '../../main.dart';
 import 'configurations.dart';
 import '../../models/user.dart';
 
-class AuthListBloc extends PageBloc<AuthListPageConfiguration> {
-  void showDetails(UserInfo1 user) {
-    pageStacksBloc.currentStackBloc?.push(AuthDetailsPage(authId: user.id));
+class AuthBloc extends PageBloc<AuthPageConfiguration> {
+  void goToPIN(UserInfo1 user) {
+    pageStacksBloc.currentStackBloc?.push(AuthPageConfiguration(authId: auth.id));
   }
-
   @override
-  AuthListPageConfiguration getConfiguration() => const AuthListPageConfiguration();
+  AuthPageConfiguration getConfiguration() => AuthPageConfiguration();
 }

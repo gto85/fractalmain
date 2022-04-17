@@ -25,7 +25,7 @@ dependencies:
   percent_indicator: ^4.0.0
   flutter_local_notifications: ^9.4.0
   app_state: ^0.3.2
-
+  keyed_collection_widgets: ^0.2.0
 
 dev_dependencies:
   flutter_test:

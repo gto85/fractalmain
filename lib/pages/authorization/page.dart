@@ -5,12 +5,13 @@ import 'bloc.dart';
 import 'configurations.dart';
 import 'screen.dart';
 
-class AuthListPage extends BlocMaterialPage<AuthListPageConfiguration, AuthListBloc> {
-  static const factoryKey = 'AuthList';
+class AuthPage extends BlocMaterialPage<AuthPageConfiguration, AuthBloc> {
+  static const factoryKey = 'Auth';
 
-  AuthListPage() : super(
+  AuthPage() : super(
     key: const ValueKey(factoryKey),
-    bloc: AuthListBloc(),
-    createScreen: (b) => AuthListScreen(bloc: b),
+    bloc: AuthBloc(),
+    createScreen: (b) => AuthScreen(bloc: b),
   );
+
 }

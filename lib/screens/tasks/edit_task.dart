@@ -2,11 +2,12 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:fractal/feature/authenticaiton/services/auth.dart';
-import 'package:fractal/feature/data/database.dart';
+import 'package:fractal/services/auth.dart';
 
-import 'task_list.dart';
-import 'tasklist_result.dart';
+
+import '../../data/database.dart';
+import '../../pages/lists/tasks/task_list.dart';
+import '../../pages/lists/complete/tasklist_result.dart';
 
 class EditTaskPage extends StatefulWidget {
   static String routeName = '/edit_task';
@@ -18,11 +19,11 @@ class EditTaskPage extends StatefulWidget {
   EditTaskPage({Key? key, required this.taskKey, required this.nameCluster, required this.color}) : super(key: key);
 
   @override
-  _EditTaskPageState createState() => new _EditTaskPageState();
+  _EditTaskPageState createState() => _EditTaskPageState();
 }
 
 class _EditTaskPageState extends State<EditTaskPage> {
-  final _nameFieldTextController = new TextEditingController();
+  final _nameFieldTextController = TextEditingController();
   final String iduser = FirebaseAuth.instance.currentUser!.uid;
   final fb = FirebaseDatabase.instance;
   String result =  FirebaseDatabase.instance.reference().child("path/to/user/record/email").once().toString();
@@ -48,7 +49,7 @@ class _EditTaskPageState extends State<EditTaskPage> {
       }
   @override
       Widget build(BuildContext context) {
-      return new Scaffold(
+      return Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         body: DefaultTabController(
             length : 2,
@@ -60,34 +61,34 @@ class _EditTaskPageState extends State<EditTaskPage> {
                       margin: EdgeInsets.zero,
                       padding: EdgeInsets.zero,
                       child: UserAccountsDrawerHeader (
-                        decoration: BoxDecoration(color: Colors.blueAccent),
-                        accountName: Text('Фрактал'),
-                        accountEmail: Text("home@dartflutter.ru"),
+                        decoration: const BoxDecoration(color: Colors.blueAccent),
+                        accountName: const Text('Фрактал'),
+                        accountEmail: const Text("home@dartflutter.ru"),
                         currentAccountPicture: Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.rectangle,
                               color: Colors.red,
                             )
                         ),
                       ),
                     ),
-                    new ListTile(
-                        title: new Text("О себе"),
-                        leading: Icon(Icons.account_box),
+                    ListTile(
+                        title: const Text("О себе"),
+                        leading: const Icon(Icons.account_box),
                         onTap: (){
 
                         }
                     ),
-                    new ListTile(
-                        title: new Text("Настройки"),
-                        leading: Icon(Icons.settings),
+                    ListTile(
+                        title: const Text("Настройки"),
+                        leading: const Icon(Icons.settings),
                         onTap: (){}
                     )
                   ],
                 ),
               ),
               appBar : AppBar(
-                  title : Text("FRACTAL",style: TextStyle(
+                  title : const Text("FRACTAL",style: TextStyle(
                       fontFamily: "fonts/Cuprum.ttf",
                       fontSize: 27.57,
                       letterSpacing: 0,
@@ -97,10 +98,10 @@ class _EditTaskPageState extends State<EditTaskPage> {
                   ),
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(Icons.notifications_active),
+                      icon: const Icon(Icons.notifications_active),
                       onPressed: () {},),
                     IconButton(
-                      icon: Icon(Icons.exit_to_app_sharp),
+                      icon: const Icon(Icons.exit_to_app_sharp),
                       onPressed: (){
                         AuthService().logOut();
                         Navigator.popUntil(context, ModalRoute.withName("/"));
@@ -110,19 +111,19 @@ class _EditTaskPageState extends State<EditTaskPage> {
                   ],
                   centerTitle: true,
                   bottom : TabBar(
-                      indicatorColor: Color.fromRGBO(0, 136, 255, 1.0),
+                      indicatorColor: const Color.fromRGBO(0, 136, 255, 1.0),
                       indicatorWeight: 4,
-                      labelPadding: EdgeInsets.all(0),
+                      labelPadding: const EdgeInsets.all(0),
                       tabs : [
                         Tab(
                           child: Container(
                             alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 1.0),),
+                            decoration: const BoxDecoration(
+                              color: const Color.fromRGBO(255, 255, 255, 1.0),),
                             child: Text( "ЗАПЛАНИРОВАННО".toUpperCase(),
                                 style:
-                                TextStyle(
-                                    color: Color.fromRGBO(0, 119, 239,1) ,
+                                const TextStyle(
+                                    color: const Color.fromRGBO(0, 119, 239,1) ,
                                     fontSize: 16,
                                     height: 1.5,
                                     letterSpacing: 0.1,
@@ -133,11 +134,11 @@ class _EditTaskPageState extends State<EditTaskPage> {
                         Tab(
                           child: Container(
                             alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                            decoration: const BoxDecoration(
+                              color: const Color.fromRGBO(255, 255, 255, 1.0),
                             ),
-                            child: Text( "ВЫПОЛНЕНИЕ".toUpperCase(),style:TextStyle(
-                                color: Color.fromRGBO(0, 119, 239, 1.0) ,
+                            child: Text( "ВЫПОЛНЕНИЕ".toUpperCase(),style:const TextStyle(
+                                color: const Color.fromRGBO(0, 119, 239, 1.0) ,
                                 fontSize: 16,
                                 height: 1.5,
                                 letterSpacing: 0.1,

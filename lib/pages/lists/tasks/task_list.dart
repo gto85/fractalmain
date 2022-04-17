@@ -1,8 +1,10 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:fractal/feature/data/database.dart';
-import 'package:fractal/feature/tasks/edit_list.dart';
+
+
+import '../../../data/database.dart';
+import '../../../screens/tasks/edit_list.dart';
 
 
 class TaskList extends StatefulWidget {
