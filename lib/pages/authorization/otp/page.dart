@@ -9,14 +9,14 @@ class OtpDetailsPage extends StatelessMaterialPage<PageConfiguration> {
   static const factoryKey = 'OtpDetails';
 
   OtpDetailsPage({
-    required int bookId,
+    required int otpID,
   }) : super(
-    key: ValueKey(formatKey(bookId: bookId)),
-    child: OtpDetailsScreen(book: bookRepository[bookId]),
-    configuration: OtpDetailsPageConfiguration(bookId: bookId),
+    key: ValueKey(formatKey(otpID: otpID)),
+    child: OtpDetailsScreen(codeDigits: '', phone: '',),
+    configuration: OtpDetailsPageConfiguration(otpID: otpID),
   );
 
-  static String formatKey({required int bookId}) {
-    return '${factoryKey}_$bookId';
+  static String formatKey({required int otpID}) {
+    return '${factoryKey}_$otpID';
   }
 }

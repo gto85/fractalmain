@@ -1,15 +1,16 @@
 import 'package:app_state/app_state.dart';
+import 'package:fractal/pages/planed/configurations.dart';
 
 import '../../main.dart';
-import '../../models/user.dart';
-import '../book_details/page.dart';
-import 'configurations.dart';
 
-class BookListBloc extends PageBloc<BookListPageConfiguration> {
-  void OtpDetails(Book book) {
-    pageStacksBloc.currentStackBloc?.push(OtpDetailsPage(bookId: book.id));
+import 'configurations.dart';
+import 'otp/page.dart';
+
+class AuthBloc extends PageBloc<AuthPageConfiguration> {
+  void OtpDetails() {
+    pageStacksBloc.currentStackBloc?.push(OtpDetailsPage(otpID: 11));
   }
 
   @override
-  BookListPageConfiguration getConfiguration() => const BookListPageConfiguration();
+  AuthPageConfiguration getConfiguration() => AuthPageConfiguration(authId: '');
 }

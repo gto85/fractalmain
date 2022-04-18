@@ -1,10 +1,13 @@
 import 'package:app_state/app_state.dart';
+import 'package:fractal/pages/planed/configurations.dart';
+
+import '../../../main.dart';
 
 
-class AuthBloc extends PageBloc<AuthPageConfiguration> {
-  void goToPIN(UserInfo1 user) {
-    pageStacksBloc.currentStackBloc?.push(AuthPageConfiguration(authId: auth.id));
+class OtpBloc extends PageBloc<OtpPageConfiguration> {
+  void goToPIN() {
+    print("OTPBloc");
   }
   @override
-  AuthPageConfiguration getConfiguration() => AuthPageConfiguration(authId: '');
+  PlanedPageConfiguration getConfiguration() => PlanedPageConfiguration();
 }

@@ -2,6 +2,7 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:fractal/router/tab_enum.dart';
 import 'bloc.dart';
+import 'otp/bloc.dart';
 
 
 class AuthScreen extends StatelessWidget {
@@ -68,7 +69,7 @@ class AuthScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: (){
-                  bloc.goToPIN();
+                  bloc.OtpDetails();
                 },
                 child: const Text("Далее", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
 

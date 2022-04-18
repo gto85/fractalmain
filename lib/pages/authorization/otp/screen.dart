@@ -3,16 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:fractal/models/user.dart';
 import 'package:pinput/pinput.dart';
 
+import '../../../main.dart';
 import '../../../repositories/auth_repository.dart';
+import '../../planed/page.dart';
 
 
 
 class OtpDetailsScreen extends StatelessWidget {
-  final UserInfo1 user;
+  final String codeDigits;
+  final String phone;
+  final TextEditingController _pinOTPCodeController = TextEditingController();
+  final FocusNode _pinOTPCodeFocus = FocusNode();
+  String? varificationCode;
+  final pinOTPCodeTheme = PinTheme(
+    width: 56,
+    height: 56,
+    textStyle: TextStyle(fontSize: 20, color: Color.fromRGBO(30, 60, 87, 1), fontWeight: FontWeight.w600),
+    decoration: BoxDecoration(
+      border: Border.all(color: Color.fromRGBO(234, 239, 243, 1)),
+      borderRadius: BorderRadius.circular(10),
+    ),
+  );
 
-  OtpDetailsScreen({
-    required this.user,
-  });
+  OtpDetailsScreen({required this.codeDigits, required this.phone});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,10 +42,10 @@ class OtpDetailsScreen extends StatelessWidget {
             child: Center(
               child: GestureDetector(
                 onTap: (){
-                  verifyPhoneNumber();
+                  verifyPhoneNumber("");
                 },
                 child: Text(
-                    "Подтверждение: ${widget.codeDigits}-${widget.phone}",
+                    "Подтверждение: ${codeDigits}-${phone}",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
               ),
             ),
@@ -56,7 +69,7 @@ class OtpDetailsScreen extends StatelessWidget {
                   ).then((value) {
                     if(value.user !=null)
                     {
-                      Navigator.of(context).push(MaterialPageRoute(builder:(c)=>HomeScreen()));
+                      pageStacksBloc.currentStackBloc?.push(PlanedPage());
                     }
                   });
                 }

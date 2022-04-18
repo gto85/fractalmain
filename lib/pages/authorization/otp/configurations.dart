@@ -1,27 +1,28 @@
 import 'package:app_state/app_state.dart';
 import 'package:flutter/widgets.dart';
 
+import '../../../router/tab_enum.dart';
 import 'page.dart';
 import '../configurations.dart';
-import '../../router/tab_enum.dart';
+
 
 class OtpDetailsPageConfiguration extends PageConfiguration {
-  final int bookId;
+  final int otpID;
 
   static final _regExp = RegExp(r'^/otp/(\d+)$');
 
   OtpDetailsPageConfiguration({
-    required this.bookId,
+    required this.otpID,
   }) : super(
-    key: OtpDetailsPage.formatKey(bookId: bookId),
+    key: OtpDetailsPage.formatKey(otpID: otpID),
     factoryKey: OtpDetailsPage.factoryKey,
-    state: {'bookId': bookId},
+    state: {'otpID': otpID},
   );
 
   @override
   RouteInformation restoreRouteInformation() {
     return RouteInformation(
-      location: '/books/$bookId',
+      location: '/otp/$otpID',
     );
   }
 
@@ -29,14 +30,14 @@ class OtpDetailsPageConfiguration extends PageConfiguration {
     final matches = _regExp.firstMatch(ri.location ?? '');
     if (matches == null) return null;
 
-    final bookId = int.tryParse(matches[1] ?? '');
+    final otpID = int.tryParse(matches[1] ?? '');
 
-    if (bookId == null) {
+    if (otpID == null) {
       return null; // Will never get here with present _regExp.
     }
 
     return OtpDetailsPageConfiguration(
-      bookId: bookId,
+      otpID: otpID,
     );
   }
 
@@ -44,12 +45,12 @@ class OtpDetailsPageConfiguration extends PageConfiguration {
   PageStackConfiguration get defaultStackConfiguration {
     return PageStackConfiguration(
       pageConfigurations: [
-        const BookListPageConfiguration(),
+         AuthPageConfiguration(authId: ''),
         this,
       ],
     );
   }
 
   @override
-  String get defaultStackKey => TabEnum.books.name;
+  String get defaultStackKey => TabEnum.balance.name;
 }

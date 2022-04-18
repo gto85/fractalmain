@@ -50,5 +50,5 @@ class AuthPageConfiguration extends PageConfiguration {
   }
 
   @override
-  String get defaultStackKey => TabEnum.auth.name;
+  String get defaultStackKey => TabEnum.balance.name;
 }
