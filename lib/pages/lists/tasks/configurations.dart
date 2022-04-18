@@ -49,5 +49,5 @@ class TaskListPageConfiguration extends PageConfiguration {
   }
 
   @override
-  String get defaultStackKey => TabEnum.tasklist.name;
+  String get defaultStackKey => TabEnum.balance.name;
 }

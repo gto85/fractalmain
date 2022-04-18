@@ -68,7 +68,7 @@ class AuthScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: (){
-                  bloc.goToPIN(pin);
+                  bloc.goToPIN();
                 },
                 child: const Text("Далее", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
 

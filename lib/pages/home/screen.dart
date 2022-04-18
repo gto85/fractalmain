@@ -32,13 +32,17 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: KeyedBottomNavigationBar<TabEnum>(
         currentItemKey: tab,
         items: const {
-          TabEnum.auth: BottomNavigationBarItem(
+          TabEnum.balance: BottomNavigationBarItem(
             icon: Icon(Icons.psychology),
-            label: 'Authorization',
+            label: 'Баланс',
           ),
-          TabEnum.planned: BottomNavigationBarItem(
+          TabEnum.statistics: BottomNavigationBarItem(
             icon: Icon(Icons.add_chart),
-            label: 'Planned',
+            label: 'Статистика',
+          ),
+          TabEnum.profile: BottomNavigationBarItem(
+            icon: Icon(Icons.add_chart),
+            label: 'Профиль',
           ),
         },
         onTap: (tab) => bloc.setCurrentStackKey(tab.name),

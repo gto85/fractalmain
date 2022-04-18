@@ -12,7 +12,7 @@ class AuthPageConfiguration extends PageConfiguration {
   AuthPageConfiguration({
     required this.authId,
   }) : super(
-    key: AuthPage.formatKey(authId: authId),
+    key: AuthPage.formatKey(authId: authId, factoryKey: ''),
     factoryKey: AuthPage.factoryKey,
     state: {'authId': authId},
   );
@@ -28,7 +28,7 @@ class AuthPageConfiguration extends PageConfiguration {
     final matches = _regExp.firstMatch(ri.location ?? '');
     if (matches == null) return null;
 
-    final authId = int.tryParse(matches[1] ?? '');
+    final authId =matches[1] ?? '';
 
     if (authId == null) {
       return null; // Will never get here with present _regExp.
@@ -43,7 +43,7 @@ class AuthPageConfiguration extends PageConfiguration {
   PageStackConfiguration get defaultStackConfiguration {
     return PageStackConfiguration(
       pageConfigurations: [
-        AuthPageConfiguration(authId: null),
+        AuthPageConfiguration(authId: ""),
         this,
       ],
     );

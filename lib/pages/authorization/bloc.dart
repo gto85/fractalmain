@@ -1,12 +1,15 @@
 import 'package:app_state/app_state.dart';
-import '../../main.dart';
-import 'configurations.dart';
-import '../../models/user.dart';
 
-class AuthBloc extends PageBloc<AuthPageConfiguration> {
-  void goToPIN(UserInfo1 user) {
-    pageStacksBloc.currentStackBloc?.push(AuthPageConfiguration(authId: auth.id));
+import '../../main.dart';
+import '../../models/user.dart';
+import '../book_details/page.dart';
+import 'configurations.dart';
+
+class BookListBloc extends PageBloc<BookListPageConfiguration> {
+  void OtpDetails(Book book) {
+    pageStacksBloc.currentStackBloc?.push(OtpDetailsPage(bookId: book.id));
   }
+
   @override
-  AuthPageConfiguration getConfiguration() => AuthPageConfiguration();
+  BookListPageConfiguration getConfiguration() => const BookListPageConfiguration();
 }

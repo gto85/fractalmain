@@ -1,13 +1,9 @@
 enum TabEnum {
-  auth,
-  planned,
-  actually,
-  pin,
-  tasklist,
-  addCluster,
-  settings,
-  editTask,
-  addTask,
-  calendar,
-  statistic,
+  balance,
+  statistics,
+  profile
+}
+enum TopTabEnum {
+  planed,
+  actually
 }

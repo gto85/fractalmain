@@ -13,7 +13,7 @@ final pageStacksBloc = PageStacksBloc();
 
 void main() async{
   pageStacksBloc.addPageStack(
-    TabEnum.planned.name,
+    TabEnum.balance.name,
     PageStackBloc<PageConfiguration>(
       bottomPage: PlanedPage(),
       createPage: PageFactory.createPage,
@@ -21,20 +21,22 @@ void main() async{
   );
 
   pageStacksBloc.addPageStack(
-    TabEnum.auth.name,
+    TabEnum.balance.name,
     PageStackBloc<PageConfiguration>(
       bottomPage: AuthPage(),
       createPage: PageFactory.createPage,
     ),
   );
 
-  pageStacksBloc.setCurrentStackKey(TabEnum.auth.name, fire: false);
+  pageStacksBloc.setCurrentStackKey(TabEnum.balance.name, fire: false);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   _MyAppState createState() => _MyAppState();
 }

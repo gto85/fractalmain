@@ -14,4 +14,6 @@ class AuthPage extends BlocMaterialPage<AuthPageConfiguration, AuthBloc> {
     createScreen: (b) => AuthScreen(bloc: b),
   );
 
+  static formatKey({required String factoryKey, String? authId}) {}
+
 }
