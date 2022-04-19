@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fractal/models/user.dart';
 
-
-
 class AuthService{
   final FirebaseAuth _fAuth = FirebaseAuth.instance;
   Future<UserInfo1?> signInWithEmailAndPassword(String email, String password) async{

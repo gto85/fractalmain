@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../pages/home/screen.dart';
 
 class MyRouterDelegate extends PageStacksRouterDelegate {
+
   MyRouterDelegate(PageStacksBloc pageStacksBloc) : super(pageStacksBloc);
 
   @override
@@ -13,7 +14,7 @@ class MyRouterDelegate extends PageStacksRouterDelegate {
       pages: [
         MaterialPage(
           key: const ValueKey('HomePage'),
-          child: HomeScreen(bloc: pageStacksBloc),
+          child: HomeScreen(bloc: pageStacksBloc,),
         ),
       ],
       onPopPage: (route, result) {

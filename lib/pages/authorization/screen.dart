@@ -22,7 +22,7 @@ class AuthScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 100,),
             Padding(padding: const EdgeInsets.only(left: 28,right: 28),
-              child: Image.asset("images/_24_fractal.png"),),
+              child: Image.asset("assets/images/_24_fractal.png"),),
             Container(
               margin: const EdgeInsets.only(top: 10),
               child:const Center(

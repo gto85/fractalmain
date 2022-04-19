@@ -1,28 +1,46 @@
 import 'package:app_state/app_state.dart';
 import 'package:keyed_collection_widgets/keyed_collection_widgets.dart';
 import 'package:flutter/material.dart';
+import '../../repositories/auth_repository.dart';
 import '../../router/tab_enum.dart';
+import '../../screens/loginScreen.dart';
 
 class HomeScreen extends StatelessWidget {
   final PageStacksBloc bloc;
 
+  AuthStatus authStatus = AuthStatus.LOGGED_OUT;
   HomeScreen({
-    required this.bloc,
+    required this.bloc
   });
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: bloc.events,
-      builder: (context, snapshot) => _buildOnEvent(),
-    );
+    switch (authStatus) {
+      case AuthStatus.NOT_DETERMINED:
+        return progressScreenWidget();
+        break;
+      case AuthStatus.LOGGED_OUT:
+        return  LoginScreen();
+        break;
+      case AuthStatus.LOGGED_IN:
+        if (authStatus!= null) {
+          return  StreamBuilder(
+            stream: bloc.events,
+            builder: (context, snapshot) => _buildOnEvent(),
+          );
+        } else
+          return progressScreenWidget();
+        break;
+      default:
+        return progressScreenWidget();
+    }
   }
 
   Widget _buildOnEvent() {
     final tab = TabEnum.values.byName(bloc.currentStackKey!);
-
     return Scaffold(
-      body: KeyedStack<TabEnum>(
+
+      body:KeyedStack<TabEnum>(
         itemKey: tab,
         children: bloc.pageStacks.map((tabString, bloc) => MapEntry(
             TabEnum.values.byName(tabString),
@@ -46,6 +64,14 @@ class HomeScreen extends StatelessWidget {
           ),
         },
         onTap: (tab) => bloc.setCurrentStackKey(tab.name),
+      ),
+    );
+  }
+  Widget progressScreenWidget() {
+    return Scaffold(
+      body: Container(
+        alignment: Alignment.center,
+        child: CircularProgressIndicator(),
       ),
     );
   }

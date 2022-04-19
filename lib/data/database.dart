@@ -294,7 +294,7 @@ class Database {
         .onValue
         .listen((DatabaseEvent event) {
       String name = event.snapshot.value as String;
-      name ??= "";
+      name = "";
       onData(name);
     });
     // print("111");

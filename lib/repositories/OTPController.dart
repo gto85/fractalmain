@@ -74,7 +74,7 @@ class _OTPControllerScreenState extends State<OTPControllerScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(padding: const EdgeInsets.all(8.0),
-           child: Image.asset("images/_24_fractal.png"),),
+           child: Image.asset("assets/images/_24_fractal.png"),),
           Container(
             margin: EdgeInsets.only(top: 20),
             child: Center(

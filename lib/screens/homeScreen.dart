@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             appBar : AppBar(
                 title : const Text("FRACTAL",style: TextStyle(
-                    fontFamily: "fonts/Cuprum.ttf",
+                    fontFamily: "assets/fonts/Cuprum.ttf",
                     fontSize: 27.57,
                     letterSpacing: 0,
                     fontWeight: FontWeight.w400,
@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 1.5,
                                   letterSpacing: 0.1,
                                   fontWeight: FontWeight.w700,
-                                  fontFamily: "fonts/Roboto-Regular.ttf")),
+                                  fontFamily: "assets/fonts/Roboto-Regular.ttf")),
                         ),
                       ),
                       Tab(
@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 1.5,
                               letterSpacing: 0.1,
                               fontWeight: FontWeight.w700,
-                              fontFamily: "fonts/Roboto-Regular.ttf")),
+                              fontFamily: "assets/fonts/Roboto-Regular.ttf")),
                         ),
                       ),
                     ] /* End TabBar.tabs. */
@@ -145,10 +145,10 @@ class MyPageState extends State<MyPage>{
             size: 30
         ),
         items: [
-          BottomNavigationBarItem(icon: Image.asset("images/_botom_icon_balance_25px.png"),label: "Баланс",),
-          BottomNavigationBarItem(icon: Image.asset("images/_botom_icon_stat_25px.png"),label: "Статистика",),
-          BottomNavigationBarItem(icon: Image.asset("images/_botom_icon_time_life_25px.png"),label: "90 лет",),
-          BottomNavigationBarItem(            icon: Image.asset("images/_botom_icon_profile_25px.png"),label: "Профиль",)
+          BottomNavigationBarItem(icon: Image.asset("assets/images/_botom_icon_balance_25px.png"),label: "Баланс",),
+          BottomNavigationBarItem(icon: Image.asset("assets/images/_botom_icon_stat_25px.png"),label: "Статистика",),
+          BottomNavigationBarItem(icon: Image.asset("assets/images/_botom_icon_time_life_25px.png"),label: "90 лет",),
+          BottomNavigationBarItem(icon: Image.asset("assets/images/_botom_icon_profile_25px.png"),label: "Профиль",)
         ],
         onTap: (int index){
           onTapHandler(index);
@@ -205,19 +205,19 @@ class MyPageResultState extends State<MyPageResult>{
         ),
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset("images/_botom_icon_balance_25px.png"),
+            icon: Image.asset("assets/images/_botom_icon_balance_25px.png"),
             label: "Баланс",
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("images/_botom_icon_stat_25px.png"),
+            icon: Image.asset("assets/images/_botom_icon_stat_25px.png"),
             label: "Статистика",
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("images/_botom_icon_time_life_25px.png"),
+            icon: Image.asset("assets/images/_botom_icon_time_life_25px.png"),
             label: "90 лет",
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("images/_botom_icon_profile_25px.png"),
+            icon: Image.asset("assets/images/_botom_icon_profile_25px.png"),
             label: "Профиль",
           )
         ],

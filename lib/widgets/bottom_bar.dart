@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fractal/notifications.dart';
-import 'package:fractal/screens/balance_screen_plan_day.dart';
+import 'package:fractal/widgets/balance_screen_plan_day.dart';
 import 'package:fractal/widgets/calendar.dart';
 import 'package:fractal/widgets/cluster_list2.dart';
 import 'package:fractal/widgets/radar_charts.dart';
@@ -64,7 +64,7 @@ class MyBalanceResult extends StatelessWidget {
                                                   right: BorderSide(width: 1.0, color: Color(0xFF0077EF)),
                                                   bottom: BorderSide(width: 1.0, color: Color(0xFF0077EF))),
                                             ),
-                                            child: const Text( "День",style: TextStyle(fontSize: 16.33,fontFamily: "fonts/Cuprum.ttf",letterSpacing: 0)),
+                                            child: const Text( "День",style: TextStyle(fontSize: 16.33,fontFamily: "assets/fonts/Cuprum.ttf",letterSpacing: 0)),
                                           )
                                       )
                                   ),
@@ -81,7 +81,7 @@ class MyBalanceResult extends StatelessWidget {
                                             right: BorderSide(width: 1.0, color: Color(0xFF0077EF)),
                                             bottom: BorderSide(width: 1.0, color: Color(0xFF0077EF))),
                                       ),
-                                      child: const Text( "Неделя",style: TextStyle(fontSize: 16.33,fontFamily: "fonts/Cuprum.ttf",letterSpacing: 0)),
+                                      child: const Text( "Неделя",style: TextStyle(fontSize: 16.33,fontFamily: "assets/fonts/Cuprum.ttf",letterSpacing: 0)),
                                     ),
                                   ),
                                   Tab( child:
@@ -97,7 +97,7 @@ class MyBalanceResult extends StatelessWidget {
                                           right: BorderSide(width: 1.0, color: Color(0xFF0077EF)),
                                           bottom: BorderSide(width: 1.0, color: Color(0xFF0077EF))),
                                     ),
-                                    child: const Text( "Месяц",style: TextStyle(fontSize: 16.33,fontFamily: "fonts/Cuprum.ttf",letterSpacing: 0)),
+                                    child: const Text( "Месяц",style: TextStyle(fontSize: 16.33,fontFamily: "assets/fonts/Cuprum.ttf",letterSpacing: 0)),
                                   ),
                                   ),
                                   Tab(
@@ -114,7 +114,7 @@ class MyBalanceResult extends StatelessWidget {
                                             right: BorderSide(width: 1.0, color: Color(0xFF0077EF)),
                                             bottom: BorderSide(width: 1.0, color: Color(0xFF0077EF))),
                                       ),
-                                      child: const Text( "Год",style: TextStyle(fontSize: 16.33,fontFamily: "fonts/Cuprum.ttf",letterSpacing: 0)),
+                                      child: const Text( "Год",style: TextStyle(fontSize: 16.33,fontFamily: "assets/fonts/Cuprum.ttf",letterSpacing: 0)),
                                     ),
                                   ),
                                 ] /* End TabBar.tabs. */
@@ -130,8 +130,8 @@ class MyBalanceResult extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Image.asset("images/procent_icon.png"),
-                                  Image.asset("images/share_icon.png"),
+                                  Image.asset("assets/images/procent_icon.png"),
+                                  Image.asset("assets/images/share_icon.png"),
                                 ],
                               )
                           ),
@@ -158,7 +158,7 @@ class MyBalanceResult extends StatelessWidget {
                                 Text(
                                     DateTime.now().day.toString()+
                                         " "+retMonth(DateTime.now().month)+
-                                        ", "+retDay(DateTime.now().weekday),style: const TextStyle(fontSize: 19,fontWeight:FontWeight.w400,fontFamily: "fonts/Cuprum.ttf")),
+                                        ", "+retDay(DateTime.now().weekday),style: const TextStyle(fontSize: 19,fontWeight:FontWeight.w400,fontFamily: "assets/fonts/Cuprum.ttf")),
                                 const Icon(Icons.arrow_forward_ios, size: 19, color: Colors.black,)]),
                           ),
                           Center(
@@ -184,8 +184,8 @@ class MyBalanceResult extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Image.asset("images/procent_icon.png"),
-                                    Image.asset("images/share_icon.png"),
+                                    Image.asset("assets/images/procent_icon.png"),
+                                    Image.asset("assets/images/share_icon.png"),
                                   ],
                                 )
                             ),
@@ -215,7 +215,7 @@ class MyBalanceResult extends StatelessWidget {
                                         "---"+
                                         DateTime.now().add(const Duration(hours: 7)).day.toString()+" "+
                                         retMonth(DateTime.now().add(const Duration(hours: 7)).month),
-                                    style: const TextStyle(fontSize: 19,fontWeight:FontWeight.w400,fontFamily: "fonts/Cuprum.ttf")),
+                                    style: const TextStyle(fontSize: 19,fontWeight:FontWeight.w400,fontFamily: "assets/fonts/Cuprum.ttf")),
                                 const Icon(Icons.chevron_right_outlined, size: 19, color: Colors.black,)]),
                           ),
                           Center(
@@ -240,8 +240,8 @@ class MyBalanceResult extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Image.asset("images/procent_icon.png"),
-                                  Image.asset("images/share_icon.png"),
+                                  Image.asset("assets/images/procent_icon.png"),
+                                  Image.asset("assets/images/share_icon.png"),
                                 ],
                               )
                           ),
@@ -300,8 +300,8 @@ class MyBalanceResult extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Image.asset("images/procent_icon.png"),
-                                  Image.asset("images/share_icon.png"),
+                                  Image.asset("assets/images/procent_icon.png"),
+                                  Image.asset("assets/images/share_icon.png"),
                                 ],
                               )
                           ),
@@ -336,7 +336,7 @@ class MyBalanceResult extends StatelessWidget {
                                     onPressed: () {},
                                   ),
                                   Text(
-                                      " ${DateTime.now().year.toString()} год ",style: const TextStyle(fontSize: 19,fontWeight:FontWeight.w400,fontFamily: "fonts/Cuprum.ttf")),
+                                      " ${DateTime.now().year.toString()} год ",style: const TextStyle(fontSize: 19,fontWeight:FontWeight.w400,fontFamily: "assets/fonts/Cuprum.ttf")),
                                   IconButton(
                                     icon: const Icon(Icons.arrow_forward),
                                     onPressed: () {},
@@ -431,7 +431,7 @@ class MyBalance extends StatelessWidget {
                                                   right: BorderSide(width: 1.0, color: Color(0xFF0077EF)),
                                                   bottom: BorderSide(width: 1.0, color: Color(0xFF0077EF))),
                                             ),
-                                            child: const Text( "День",style: TextStyle(fontSize: 16.33,fontFamily: "fonts/Cuprum.ttf",letterSpacing: 0)),
+                                            child: const Text( "День",style: TextStyle(fontSize: 16.33,fontFamily: "assets/fonts/Cuprum.ttf",letterSpacing: 0)),
                                           )
                                       )
                                   ),
@@ -448,7 +448,7 @@ class MyBalance extends StatelessWidget {
                                             right: BorderSide(width: 1.0, color: Color(0xFF0077EF)),
                                             bottom: BorderSide(width: 1.0, color: Color(0xFF0077EF))),
                                       ),
-                                      child: const Text( "Неделя",style: TextStyle(fontSize: 16.33,fontFamily: "fonts/Cuprum.ttf",letterSpacing: 0)),
+                                      child: const Text( "Неделя",style: TextStyle(fontSize: 16.33,fontFamily: "assets/fonts/Cuprum.ttf",letterSpacing: 0)),
                                     ),
                                   ),
                                   Tab( child:
@@ -464,7 +464,7 @@ class MyBalance extends StatelessWidget {
                                           right: BorderSide(width: 1.0, color: Color(0xFF0077EF)),
                                           bottom: BorderSide(width: 1.0, color: Color(0xFF0077EF))),
                                     ),
-                                    child: const Text( "Месяц",style: TextStyle(fontSize: 16.33,fontFamily: "fonts/Cuprum.ttf",letterSpacing: 0)),
+                                    child: const Text( "Месяц",style: TextStyle(fontSize: 16.33,fontFamily: "assets/fonts/Cuprum.ttf",letterSpacing: 0)),
                                   ),
                                   ),
                                   Tab(
@@ -481,7 +481,7 @@ class MyBalance extends StatelessWidget {
                                             right: BorderSide(width: 1.0, color: Color(0xFF0077EF)),
                                             bottom: BorderSide(width: 1.0, color: Color(0xFF0077EF))),
                                       ),
-                                      child: const Text( "Год",style: TextStyle(fontSize: 16.33,fontFamily: "fonts/Cuprum.ttf",letterSpacing: 0)),
+                                      child: const Text( "Год",style: TextStyle(fontSize: 16.33,fontFamily: "assets/fonts/Cuprum.ttf",letterSpacing: 0)),
                                     ),
                                   ),
                                 ] /* End TabBar.tabs. */
@@ -498,7 +498,7 @@ class MyBalance extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Image.asset("images/share_icon.png"),
+                                  Image.asset("assets/images/share_icon.png"),
                                 ],
                               )
                           ),
@@ -553,8 +553,8 @@ class MyBalance extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Image.asset("images/procent_icon.png"),
-                                    Image.asset("images/share_icon.png"),
+                                    Image.asset("assets/images/procent_icon.png"),
+                                    Image.asset("assets/images/share_icon.png"),
                                   ],
                                 )
                             ),
@@ -606,8 +606,8 @@ class MyBalance extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Image.asset("images/procent_icon.png"),
-                                  Image.asset("images/share_icon.png"),
+                                  Image.asset("assets/images/procent_icon.png"),
+                                  Image.asset("assets/images/share_icon.png"),
                                 ],
                               )
                           ),
@@ -660,8 +660,8 @@ class MyBalance extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Image.asset("images/procent_icon.png"),
-                                  Image.asset("images/share_icon.png"),
+                                  Image.asset("assets/images/procent_icon.png"),
+                                  Image.asset("assets/images/share_icon.png"),
                                 ],
                               )
                           ),

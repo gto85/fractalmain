@@ -74,7 +74,7 @@ class _TaskList1State extends State<TaskList> {
                                   fontSize: 19.8,
                                   height: 1,
                                   fontWeight: FontWeight.w500,
-                                  fontFamily: "fonts/Cuprum.ttf"))
+                                  fontFamily: "assets/fonts/Cuprum.ttf"))
                       ),
                       SizedBox(
                         width: 108,
@@ -85,12 +85,12 @@ class _TaskList1State extends State<TaskList> {
                                 fontSize: 16.8,
                                 height: 1,
                                 fontWeight: FontWeight.w800,
-                                fontFamily: "fonts/Cuprum.ttf")),
+                                fontFamily: "assets/fonts/Cuprum.ttf")),
                       ),
                       Container(
                           margin: const EdgeInsets.only(left: 0),
                           child: IconButton (
-                          icon: Image.asset("images/_edit_icon.png",width: 20,height: 15),
+                          icon: Image.asset("assets/images/_edit_icon.png",width: 20,height: 15),
                           iconSize: 20,
                           onPressed: () {
                           _editTask(taskKey!,widget.clusterKey);
@@ -119,7 +119,7 @@ class _TaskList1State extends State<TaskList> {
 
         title : Text(widget.title,style: const TextStyle(
             color: Color(0xff000000),
-            fontFamily: "fonts/Cuprum.ttf",
+            fontFamily: "assets/fonts/Cuprum.ttf",
             fontSize: 27.57,
             letterSpacing: 0,
             fontWeight: FontWeight.w600,
@@ -128,7 +128,7 @@ class _TaskList1State extends State<TaskList> {
         ),),
       body: body,
       floatingActionButton: FloatingActionButton(
-        child: Image.asset("images/task-planning.png",width: 45,height: 45),
+        child: Image.asset("assets/images/task-planning.png",width: 45,height: 45),
         onPressed: () {
           String taskKey = widget.clusterKey;
           showDialog<Map>(

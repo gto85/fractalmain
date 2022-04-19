@@ -10,7 +10,7 @@ class PlanedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      appBar: AppBar(title: const Text('Planed')),
       body: ListView(
         children: [
           for (var planed in ["planedRepository"])
