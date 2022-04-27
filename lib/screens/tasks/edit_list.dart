@@ -71,6 +71,7 @@ class _EditListPageState extends State<EditListPage> {
                   value.once().then((value) {
                     Map<dynamic, dynamic> _myMap ;
                     print(value.snapshot.value);
+
                     // _myMap.forEach((key, value) {
                     //   tempVal=tempVal+value["timeTask"];
                     // });

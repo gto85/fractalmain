@@ -19,11 +19,11 @@ class EditTaskPage extends StatefulWidget {
   EditTaskPage({Key? key, required this.taskKey, required this.nameCluster, required this.color}) : super(key: key);
 
   @override
-  _EditTaskPageState createState() => _EditTaskPageState();
+  _EditTaskPageState createState() => new _EditTaskPageState();
 }
 
 class _EditTaskPageState extends State<EditTaskPage> {
-  final _nameFieldTextController = TextEditingController();
+  final _nameFieldTextController = new TextEditingController();
   final String iduser = FirebaseAuth.instance.currentUser!.uid;
   final fb = FirebaseDatabase.instance;
   String result =  FirebaseDatabase.instance.reference().child("path/to/user/record/email").once().toString();
@@ -49,7 +49,7 @@ class _EditTaskPageState extends State<EditTaskPage> {
       }
   @override
       Widget build(BuildContext context) {
-      return Scaffold(
+      return new Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         body: DefaultTabController(
             length : 2,
@@ -61,34 +61,34 @@ class _EditTaskPageState extends State<EditTaskPage> {
                       margin: EdgeInsets.zero,
                       padding: EdgeInsets.zero,
                       child: UserAccountsDrawerHeader (
-                        decoration: const BoxDecoration(color: Colors.blueAccent),
-                        accountName: const Text('Фрактал'),
-                        accountEmail: const Text("home@dartflutter.ru"),
+                        decoration: BoxDecoration(color: Colors.blueAccent),
+                        accountName: Text('Фрактал'),
+                        accountEmail: Text("home@dartflutter.ru"),
                         currentAccountPicture: Container(
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               shape: BoxShape.rectangle,
                               color: Colors.red,
                             )
                         ),
                       ),
                     ),
-                    ListTile(
-                        title: const Text("О себе"),
-                        leading: const Icon(Icons.account_box),
+                    new ListTile(
+                        title: new Text("О себе"),
+                        leading: Icon(Icons.account_box),
                         onTap: (){
 
                         }
                     ),
-                    ListTile(
-                        title: const Text("Настройки"),
-                        leading: const Icon(Icons.settings),
+                    new ListTile(
+                        title: new Text("Настройки"),
+                        leading: Icon(Icons.settings),
                         onTap: (){}
                     )
                   ],
                 ),
               ),
               appBar : AppBar(
-                  title : const Text("FRACTAL",style: TextStyle(
+                  title : Text("FRACTAL",style: TextStyle(
                       fontFamily: "fonts/Cuprum.ttf",
                       fontSize: 27.57,
                       letterSpacing: 0,
@@ -98,10 +98,10 @@ class _EditTaskPageState extends State<EditTaskPage> {
                   ),
                   actions: <Widget>[
                     IconButton(
-                      icon: const Icon(Icons.notifications_active),
+                      icon: Icon(Icons.notifications_active),
                       onPressed: () {},),
                     IconButton(
-                      icon: const Icon(Icons.exit_to_app_sharp),
+                      icon: Icon(Icons.exit_to_app_sharp),
                       onPressed: (){
                         AuthService().logOut();
                         Navigator.popUntil(context, ModalRoute.withName("/"));
@@ -111,19 +111,19 @@ class _EditTaskPageState extends State<EditTaskPage> {
                   ],
                   centerTitle: true,
                   bottom : TabBar(
-                      indicatorColor: const Color.fromRGBO(0, 136, 255, 1.0),
+                      indicatorColor: Color.fromRGBO(0, 136, 255, 1.0),
                       indicatorWeight: 4,
-                      labelPadding: const EdgeInsets.all(0),
+                      labelPadding: EdgeInsets.all(0),
                       tabs : [
                         Tab(
                           child: Container(
                             alignment: Alignment.center,
-                            decoration: const BoxDecoration(
-                              color: const Color.fromRGBO(255, 255, 255, 1.0),),
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),),
                             child: Text( "ЗАПЛАНИРОВАННО".toUpperCase(),
                                 style:
-                                const TextStyle(
-                                    color: const Color.fromRGBO(0, 119, 239,1) ,
+                                TextStyle(
+                                    color: Color.fromRGBO(0, 119, 239,1) ,
                                     fontSize: 16,
                                     height: 1.5,
                                     letterSpacing: 0.1,
@@ -134,11 +134,11 @@ class _EditTaskPageState extends State<EditTaskPage> {
                         Tab(
                           child: Container(
                             alignment: Alignment.center,
-                            decoration: const BoxDecoration(
-                              color: const Color.fromRGBO(255, 255, 255, 1.0),
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
                             ),
-                            child: Text( "ВЫПОЛНЕНИЕ".toUpperCase(),style:const TextStyle(
-                                color: const Color.fromRGBO(0, 119, 239, 1.0) ,
+                            child: Text( "ВЫПОЛНЕНИЕ".toUpperCase(),style:TextStyle(
+                                color: Color.fromRGBO(0, 119, 239, 1.0) ,
                                 fontSize: 16,
                                 height: 1.5,
                                 letterSpacing: 0.1,
